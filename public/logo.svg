@@ -1,0 +1,110 @@
+<svg class="prompt-layer-logo" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Navy Blue Gradient -->
+    <linearGradient id="cloudGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1421;stop-opacity:0.9" />
+      <stop offset="50%" style="stop-color:#1a237e;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#3949ab;stop-opacity:0.7" />
+    </linearGradient>
+    
+    <!-- Electric Blue Gradient -->
+    <linearGradient id="cloudGradient2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0288d1;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#2196f3;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#64b5f6;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <!-- Rose Pink Gradient -->
+    <linearGradient id="cloudGradient3" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" style="stop-color:#ad1457;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#e91e63;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#f06292;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <filter id="glow">
+      <feMorphology operator="dilate" radius="2"/>
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <style>
+    .prompt-layer-logo .cloud-shape {
+      transform-origin: center;
+      mix-blend-mode: screen;
+    }
+    
+    .prompt-layer-logo .cloud-1 {
+      animation: 
+        cloudTremble 4s ease-in-out infinite,
+        cloudFloat 6s ease-in-out infinite alternate,
+        cloudMorph1 8s ease-in-out infinite;
+    }
+    
+    .prompt-layer-logo .cloud-2 {
+      animation: 
+        cloudTremble 5s ease-in-out infinite 0.8s,
+        cloudFloat 7s ease-in-out infinite alternate 0.5s,
+        cloudMorph2 9s ease-in-out infinite 1s;
+    }
+    
+    .prompt-layer-logo .cloud-3 {
+      animation: 
+        cloudTremble 3.5s ease-in-out infinite 1.2s,
+        cloudFloat 5.5s ease-in-out infinite alternate 1s,
+        cloudMorph3 7s ease-in-out infinite 0.3s;
+    }
+    
+    @keyframes cloudTremble {
+      0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+      25% { transform: translate(2px, -1px) scale(1.02) rotate(0.5deg); }
+      50% { transform: translate(-1px, 2px) scale(0.98) rotate(-0.3deg); }
+      75% { transform: translate(-2px, -1px) scale(1.01) rotate(0.2deg); }
+    }
+    
+    @keyframes cloudFloat {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-10px); }
+    }
+    
+    @keyframes cloudMorph1 {
+      0%, 100% { d: path("M60,120 Q90,70 130,90 Q170,50 210,80 Q250,60 270,100 Q280,140 250,160 Q210,180 170,170 Q130,190 90,170 Q50,150 60,120 Z"); }
+      33% { d: path("M55,125 Q95,65 135,95 Q175,45 215,85 Q255,55 275,105 Q285,145 255,165 Q215,185 175,175 Q135,195 95,175 Q45,155 55,125 Z"); }
+      66% { d: path("M65,115 Q85,75 125,85 Q165,55 205,75 Q245,65 265,95 Q275,135 245,155 Q205,175 165,165 Q125,185 85,165 Q55,145 65,115 Z"); }
+    }
+    
+    @keyframes cloudMorph2 {
+      0%, 100% { d: path("M80,140 Q110,90 150,110 Q190,70 230,100 Q270,80 290,120 Q300,160 270,180 Q230,200 190,190 Q150,210 110,190 Q70,170 80,140 Z"); }
+      25% { d: path("M75,145 Q115,85 155,115 Q195,65 235,105 Q275,75 295,125 Q305,165 275,185 Q235,205 195,195 Q155,215 115,195 Q65,175 75,145 Z"); }
+      50% { d: path("M85,135 Q105,95 145,105 Q185,75 225,95 Q265,85 285,115 Q295,155 265,175 Q225,195 185,185 Q145,205 105,185 Q75,165 85,135 Z"); }
+      75% { d: path("M78,142 Q112,88 152,112 Q192,68 232,102 Q272,78 292,122 Q302,162 272,182 Q232,202 192,192 Q152,212 112,192 Q68,172 78,142 Z"); }
+    }
+    
+    @keyframes cloudMorph3 {
+      0%, 100% { d: path("M40,160 Q70,110 110,130 Q150,90 190,120 Q230,100 250,140 Q260,180 230,200 Q190,220 150,210 Q110,230 70,210 Q30,190 40,160 Z"); }
+      30% { d: path("M35,165 Q75,105 115,135 Q155,85 195,125 Q235,95 255,145 Q265,185 235,205 Q195,225 155,215 Q115,235 75,215 Q25,195 35,165 Z"); }
+      60% { d: path("M45,155 Q65,115 105,125 Q145,95 185,115 Q225,105 245,135 Q255,175 225,195 Q185,215 145,205 Q105,225 65,205 Q35,185 45,155 Z"); }
+    }
+  </style>
+  
+  <!-- Cloud 1 - Navy Blue (Back layer) -->
+  <path class="cloud-shape cloud-1" 
+        d="M60,120 Q90,70 130,90 Q170,50 210,80 Q250,60 270,100 Q280,140 250,160 Q210,180 170,170 Q130,190 90,170 Q50,150 60,120 Z"
+        fill="url(#cloudGradient1)"
+        filter="url(#glow)"/>
+  
+  <!-- Cloud 2 - Electric Blue (Middle layer) -->
+  <path class="cloud-shape cloud-2" 
+        d="M80,140 Q110,90 150,110 Q190,70 230,100 Q270,80 290,120 Q300,160 270,180 Q230,200 190,190 Q150,210 110,190 Q70,170 80,140 Z"
+        fill="url(#cloudGradient2)"
+        filter="url(#glow)"/>
+  
+  <!-- Cloud 3 - Rose Pink (Front layer) -->
+  <path class="cloud-shape cloud-3" 
+        d="M40,160 Q70,110 110,130 Q150,90 190,120 Q230,100 250,140 Q260,180 230,200 Q190,220 150,210 Q110,230 70,210 Q30,190 40,160 Z"
+        fill="url(#cloudGradient3)"
+        filter="url(#glow)"/>
+</svg>

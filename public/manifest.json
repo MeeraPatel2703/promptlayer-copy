@@ -1,0 +1,69 @@
+{
+  "manifest_version": 3,
+  "name": "Prompt Layer",
+  "version": "2.0.0",
+  "description": "A floating widget that appears when typing in LLM text fields to enhance your prompts.",
+  "author": "PromptLayer Team",
+  "homepage_url": "https://github.com/your-repo/prompt-layer",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://claude.ai/*",
+    "https://perplexity.ai/*",
+    "https://www.perplexity.ai/*",
+    "https://gemini.google.com/*",
+    "https://chat.anthropic.com/*",
+    "https://poe.com/*",
+    "https://bard.google.com/*",
+    "https://copilot.microsoft.com/*",
+    "https://meta.ai/*",
+    "https://api.anthropic.com/*",
+    "<all_urls>"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self' 'unsafe-inline';"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon.svg",
+      "32": "icons/icon.svg",
+      "48": "icons/icon.svg",
+      "128": "icons/icon.svg"
+    },
+    "default_title": "PromptLayer - Enhance your LLM interactions"
+  },
+  "icons": {
+    "16": "icons/icon.svg",
+    "32": "icons/icon.svg",
+    "48": "icons/icon.svg",
+    "128": "icons/icon.svg"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*", "system-prompt.yaml"],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "minimum_chrome_version": "88"
+} 
