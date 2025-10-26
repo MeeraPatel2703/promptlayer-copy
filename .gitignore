@@ -4,23 +4,25 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Build output
+# Build outputs
+public/*.js
+public/*.map
 dist/
 build/
-*.js.map
 
-# Built extension files
-public/content.js
-public/popup.js
-public/background.js
-public/*.LICENSE.txt
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # IDE and editor files
-.idea/
 .vscode/
-.cursor/
+.idea/
 *.swp
 *.swo
+*~
 
 # OS generated files
 .DS_Store
@@ -31,34 +33,24 @@ public/*.LICENSE.txt
 ehthumbs.db
 Thumbs.db
 
-# Environment variables
-.env
-.env.local
-.env.*.local
-
-# Chrome extension specific
-*.pem
-*.crx
-*.zip
-
 # Logs
 logs
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
-# Optional npm cache directory
-.npm
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# Optional eslint cache
-.eslintcache
+# Coverage directory used by tools like istanbul
+coverage/
 
-# Optional REPL history
-.node_repl_history
+# Temporary folders
+tmp/
+temp/
 
-# Output of 'npm pack'
-*.tgz
-
-# Yarn Integrity file
-.yarn-integrity 
+# Chrome extension specific
+*.crx
+*.pem
+*.zip

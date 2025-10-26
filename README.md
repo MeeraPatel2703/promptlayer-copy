@@ -17,8 +17,8 @@ PromptLayer is a sophisticated Chrome extension that revolutionizes AI interacti
 
 1. **Clone Repository**
    ```bash
-   git clone https://github.com/the-golster/prompt_layer.git
-   cd prompt_layer
+   git clone https://github.com/MeeraPatel2703/promptlayer-copy.git
+   cd promptlayer-copy
    ```
 
 2. **Install Dependencies**

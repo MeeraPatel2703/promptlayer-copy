@@ -6,12 +6,29 @@ module.exports = {
   entry: {
     content: './src/content/index.tsx',
     popup: './src/popup/index.tsx',
-    background: './src/background/background.ts',
-    test: './src/test/index.tsx'
+    background: './src/background/background.ts'
   },
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: '[name].js',
+    clean: true,
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
+  },
+  performance: {
+    hints: 'warning',
+    maxEntrypointSize: 400000,
+    maxAssetSize: 400000,
   },
   module: {
     rules: [

@@ -2,6 +2,7 @@ import React, { useState, useEffect, forwardRef, useImperativeHandle, useCallbac
 import Widget from './Widget';
 import RefineButton from './RefineButton';
 import SuggestionBubble from './SuggestionBubble';
+import ErrorBoundary from '../components/ErrorBoundary';
 import './styles.css';
 
 interface AppProps {
@@ -625,28 +626,30 @@ const App = forwardRef<AppHandle, AppProps>(({ isChatGPT }, ref) => {
   }
 
   return (
-    <div className="prompt-layer-container">
-      {showRefineButton && (
-        <RefineButton
-          onRefineClick={handleRefineClick}
-          onClose={handleRefineButtonClose}
-        />
-      )}
-      
-      {isVisible && (
-        <Widget
-          isChatGPT={isChatGPT}
-          selectedText={selectedText}
-          onClose={handleClose}
-          onDragStart={handleDragStart}
-          onDragEnd={handleDragEnd}
-          onReplaceText={handleReplaceText}
-          onUpdateTargetSelection={handleUpdateTargetSelection}
-        />
-      )}
-      
-      <SuggestionBubble />
-    </div>
+    <ErrorBoundary>
+      <div className="prompt-layer-container">
+        {showRefineButton && (
+          <RefineButton
+            onRefineClick={handleRefineClick}
+            onClose={handleRefineButtonClose}
+          />
+        )}
+        
+        {isVisible && (
+          <Widget
+            isChatGPT={isChatGPT}
+            selectedText={selectedText}
+            onClose={handleClose}
+            onDragStart={handleDragStart}
+            onDragEnd={handleDragEnd}
+            onReplaceText={handleReplaceText}
+            onUpdateTargetSelection={handleUpdateTargetSelection}
+          />
+        )}
+        
+        <SuggestionBubble />
+      </div>
+    </ErrorBoundary>
   );
 });
 

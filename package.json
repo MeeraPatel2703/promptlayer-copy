@@ -5,9 +5,12 @@
   "description": "A floating widget that appears when typing in LLM text fields to enhance your prompts",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "watch": "webpack --config webpack.config.js --watch",
-    "dev": "webpack --config webpack.config.js --watch --mode=development"
+    "build": "webpack --config webpack.config.js --mode=production",
+    "build:dev": "webpack --config webpack.config.js --mode=development",
+    "watch": "webpack --config webpack.config.js --watch --mode=development",
+    "dev": "webpack --config webpack.config.js --watch --mode=development",
+    "clean": "rm -rf public/*.js public/*.map",
+    "prebuild": "npm run clean"
   },
   "keywords": [
     "chrome-extension",
@@ -18,11 +21,11 @@
     "ai",
     "productivity"
   ],
-  "author": "PromptLayer Team",
+  "author": "Meera Patel",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/prompt-layer.git"
+    "url": "https://github.com/MeeraPatel2703/promptlayer-copy.git"
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",
